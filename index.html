@@ -541,6 +541,19 @@
     });
     copyButton.addEventListener('click', copyResults);
 
+    // Po wejściu do pola zaznacza całą obecną wartość,
+    // aby wpisanie liczby od razu zastępowało np. domyślne 0.
+    for (const input of Object.values(fields)) {
+      input.addEventListener('focus', () => {
+        window.setTimeout(() => input.select(), 0);
+      });
+
+      input.addEventListener('mouseup', (event) => {
+        event.preventDefault();
+        input.select();
+      });
+    }
+
     loadSavedValues();
     update();
   </script>
