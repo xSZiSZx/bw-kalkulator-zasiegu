@@ -329,7 +329,8 @@
           <div id="error-message" class="error" role="alert" aria-live="polite"></div>
 
           <div class="actions">
-            <button class="primary" type="button" id="copy-results">Kopiuj wyniki</button>
+            <button class="primary" type="button" id="clear-data">Wyczyść dane</button>
+            <button class="secondary" type="button" id="copy-results">Kopiuj wyniki</button>
             <button class="secondary" type="button" id="show-example">Podaj przykład</button>
           </div>
           <div id="status" class="status" role="status" aria-live="polite"></div>
@@ -390,6 +391,7 @@
     const statusMessage = document.getElementById('status');
     const copyButton = document.getElementById('copy-results');
     const exampleButton = document.getElementById('show-example');
+    const clearButton = document.getElementById('clear-data');
 
     const fields = {
       agility: document.getElementById('agility'),
@@ -531,6 +533,11 @@
       for (const [key, input] of Object.entries(fields)) input.value = exampleValues[key];
       update();
       statusMessage.textContent = 'Przykład obliczeń dla broni białej 2H';
+    });
+    clearButton.addEventListener('click', () => {
+      for (const [key, input] of Object.entries(fields)) input.value = defaultValues[key];
+      update();
+      statusMessage.textContent = 'Dane zostały wyczyszczone.';
     });
     copyButton.addEventListener('click', copyResults);
 
