@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kalkulator trafienia i zasięgu BW na podstawie arkusza Excel.">
   <meta name="theme-color" content="#1f4f78">
-  <title>BW Kalkulator zasięgu</title>
+  <title>BW Kalkulator zasięgu - Moria sezonowa</title>
   <style>
     :root {
       color-scheme: light;
@@ -249,6 +249,10 @@
       line-height: 1.45;
     }
 
+    .range-assumption-followup {
+      margin-top: 4px;
+    }
+
     .status {
       min-height: 1.35em;
       margin-top: 11px;
@@ -283,7 +287,7 @@
 <body>
   <main class="page">
     <header class="hero">
-      <h1>BW Kalkulator zasięgu</h1>
+      <h1>BW Kalkulator zasięgu - Moria sezonowa</h1>
       <p class="subtitle">Trafienie i zasięg dla broni białej, palnej oraz dystansowej.</p>
     </header>
 
@@ -376,6 +380,7 @@
           </div>
 
           <p class="range-assumption">Obliczenia zakładają szansę na trafienie na poziomie 99%</p>
+          <p class="range-assumption range-assumption-followup">Każdy punkt statystyk przeciwnika powyżej maksymalnego zasięgu zmniejsza szansę trafienia o 3%</p>
         </div>
       </section>
     </div>
@@ -515,7 +520,7 @@
       if (!currentResults) return;
 
       const text = [
-        'BW Kalkulator zasięgu',
+        'BW Kalkulator zasięgu - Moria sezonowa',
         `Trafienie — biała: ${currentResults.meleeHit}, palna: ${currentResults.firearmHit}, dystans: ${currentResults.rangedHit}`,
         `MAX ZASIĘG — biała: ${currentResults.meleeRange}, palna: ${currentResults.firearmRange}, dystans: ${currentResults.rangedRange}`
       ].join('\n');
